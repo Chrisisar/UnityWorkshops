@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5.0f;          // Movement speed
-    public float jumpForce = 10.0f;    // Jump height
+    public float movementSpeed = 5.0f;      // Movement speed
+    public float jumpForce = 12.0f;         // Jump height
 
-    private Rigidbody2D rb;
+    private Rigidbody2D playerRigidBody;    // RigidBody component
 
-    private bool isGrounded;
-    public Transform groundCheck;    // Position to check if grounded
-    public float groundCheckRadius = 0.2f; // Radius for ground check
-    public LayerMask groundLayer;    // Layer for ground detection
+    private bool isGrounded;                // Flag to see if we touch the ground
+    public Transform groundChecker;         // GameObject to check if grounded
+    public float groundCheckRadius = 0.2f;  // Radius for ground check
+    public LayerMask terrainLayer;          // Layer for objects we can step on and jump
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -25,15 +25,15 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
 
         // Move the player
-        rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
+        playerRigidBody.velocity = new Vector2(moveX * movementSpeed, playerRigidBody.velocity.y);
 
-        // Check if the player is grounded
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        // Check if the player stand on 
+        isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, terrainLayer);
 
         // Jump if the player is grounded and presses Jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
         }
     }
 }
