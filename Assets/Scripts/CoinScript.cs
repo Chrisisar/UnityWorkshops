@@ -18,11 +18,17 @@ public class CoinScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        //Check if the coin collided with a Player object
         if (col.gameObject.name == "Player")
         {
+            //Increase score
             GameState.Score++;
-            CoinSpawner coinSpawnerObject = GameObject.FindObjectOfType<CoinSpawner>();
+
+            //Let CoinSpawner know that the coin was just collected and it should spawn a new one
+            CoinSpawner coinSpawnerObject = GameObject.FindAnyObjectByType<CoinSpawner>();
             coinSpawnerObject.shouldSpawnCoin = true;
+
+            //Destroy this coin object
             Destroy(gameObject);
         }
     }

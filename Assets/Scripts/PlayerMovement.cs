@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -25,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
 
         // Move the player
-        playerRigidBody.velocity = new Vector2(moveX * movementSpeed, playerRigidBody.velocity.y);
+        playerRigidBody.linearVelocity = new Vector2(moveX * movementSpeed, playerRigidBody.linearVelocity.y);
 
         // Check if the player stand on 
         isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, terrainLayer);
@@ -33,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         // Jump if the player is grounded and presses Jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
+            playerRigidBody.linearVelocity = new Vector2(playerRigidBody.linearVelocity.x, jumpForce);
         }
     }
 }

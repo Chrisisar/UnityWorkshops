@@ -7,7 +7,10 @@ public class PlatformBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CoinSpawner coinSpawnerObject = GameObject.FindObjectOfType<CoinSpawner>();
+        //Get CoinSpawner object on the scene
+        CoinSpawner coinSpawnerObject = GameObject.FindAnyObjectByType<CoinSpawner>();
+
+        //Add this platform to its list of platforms when it's first created
         coinSpawnerObject.ExistingPlatforms.Add(gameObject);
     }
 
