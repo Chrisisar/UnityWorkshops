@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 235222574}
   - component: {fileID: 235222575}
   m_Layer: 3
-  m_Name: Square (4)
+  m_Name: Right Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 348303992}
   - component: {fileID: 348303993}
   m_Layer: 3
-  m_Name: Square (1)
+  m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 860973739}
   - component: {fileID: 860973740}
   m_Layer: 3
-  m_Name: Square
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -727,11 +727,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b591126f6d47a4897c14f26deaaca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  movementSpeed: 5
   jumpForce: 12
-  groundCheck: {fileID: 1549837813}
+  groundChecker: {fileID: 1549837813}
   groundCheckRadius: 0.2
-  groundLayer:
+  terrainLayer:
     serializedVersion: 2
     m_Bits: 8
 --- !u!61 &953460777
@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 1149725712}
   - component: {fileID: 1149725713}
   m_Layer: 3
-  m_Name: Square (5)
+  m_Name: Middle Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -937,7 +937,7 @@ GameObject:
   - component: {fileID: 1801083930}
   - component: {fileID: 1801083931}
   m_Layer: 3
-  m_Name: Square (2)
+  m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1070,7 +1070,7 @@ GameObject:
   - component: {fileID: 1993494372}
   - component: {fileID: 1993494373}
   m_Layer: 3
-  m_Name: Square (3)
+  m_Name: Left Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
